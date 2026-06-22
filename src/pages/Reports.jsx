@@ -36,7 +36,7 @@ export default function Reports() {
         <p>Click any report card to view details and export.</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }} className="reports-charts-row">
         <RevenueAreaChart compact />
         <ProfitLossChart compact />
       </div>

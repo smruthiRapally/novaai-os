@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import {
-  MdNotifications, MdSearch, MdClose,
+  MdNotifications, MdSearch, MdClose, MdMenu,
   MdPerson, MdSettings, MdLogout, MdOutlineNotifications
 } from 'react-icons/md';
 import GlobalSearch from '../ui/GlobalSearch';
@@ -20,7 +20,7 @@ const dropdownItems = [
   { icon: <MdLogout size={16} />, label: 'Logout', route: '/login', danger: true },
 ];
 
-export default function Navbar({ title, onSearchOpen }) {
+export default function Navbar({ title, onSearchOpen, onMenuOpen }) {
   const [showNotifs, setShowNotifs] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
   const profileRef = useRef(null);
@@ -39,6 +39,11 @@ export default function Navbar({ title, onSearchOpen }) {
 
   return (
     <header className="navbar">
+      {/* Hamburger — mobile only */}
+      <button className="hamburger-btn" onClick={onMenuOpen} aria-label="Open menu">
+        <MdMenu size={20} />
+      </button>
+
       <span className="navbar-title">{title}</span>
 
       <div className="navbar-right">
@@ -80,7 +85,7 @@ export default function Navbar({ title, onSearchOpen }) {
                 transition={{ duration: 0.15 }}
                 style={{
                   position: 'absolute', right: 0, top: 46,
-                  width: 300, background: '#161821',
+                  width: 'min(300px, calc(100vw - 24px))', background: '#161821',
                   border: '1px solid var(--border)', borderRadius: 14,
                   padding: 8, boxShadow: '0 16px 48px rgba(0,0,0,0.5)',
                   zIndex: 200,
@@ -134,7 +139,7 @@ export default function Navbar({ title, onSearchOpen }) {
                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 style={{
                   position: 'absolute', right: 0, top: 46,
-                  width: 220, background: '#161821',
+                  width: 'min(220px, calc(100vw - 24px))', background: '#161821',
                   border: '1px solid var(--border)', borderRadius: 14,
                   padding: 6, boxShadow: '0 16px 48px rgba(0,0,0,0.6)',
                   zIndex: 200,

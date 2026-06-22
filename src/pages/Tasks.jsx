@@ -68,7 +68,7 @@ export default function Tasks() {
       </div>
 
       <div className="glass-card" style={{ marginBottom: 20 }}>
-        <form onSubmit={addTask} style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
+        <form onSubmit={addTask} className="task-add-form" style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
           <input
             className="form-input"
             placeholder="Add a new task…"

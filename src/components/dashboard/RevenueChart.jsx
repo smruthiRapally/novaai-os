@@ -3,6 +3,7 @@ import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, BarChart, Bar, Cell, ReferenceLine, Legend, LineChart, Line
 } from 'recharts';
+import { formatINR, formatINRTick } from '../../utils/format';
 
 export const revenueData = {
   '7D': [
@@ -47,8 +48,8 @@ const tooltip = {
   borderRadius: 10, color: '#F8FAFC', fontSize: 13
 };
 
-const fmt = v => `₹${(Math.abs(v) / 1000).toFixed(0)}k`;
-const fmtFull = v => `₹${Math.abs(v).toLocaleString()}`;
+const fmt = v => formatINRTick(v);
+const fmtFull = v => formatINR(Math.abs(v));
 
 const filters = ['7D', '30D', '90D', '1Y'];
 

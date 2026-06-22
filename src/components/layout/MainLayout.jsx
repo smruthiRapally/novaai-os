@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
+import MobileDrawer from './MobileDrawer';
 import Toast from '../ui/Toast';
 import GlobalSearch from '../ui/GlobalSearch';
 
@@ -21,13 +22,17 @@ const titles = {
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
   animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -8 },
+  exit:    { opacity: 0, y: -8 },
 };
 
 export default function MainLayout() {
   const location = useLocation();
   const title = titles[location.pathname] || 'NOVA AI';
   const [searchOpen, setSearchOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  // Close drawer on route change
+  useEffect(() => { setDrawerOpen(false); }, [location.pathname]);
 
   // Ctrl+K / Cmd+K global shortcut
   useEffect(() => {
@@ -43,9 +48,18 @@ export default function MainLayout() {
 
   return (
     <div className="app-layout">
+      {/* Desktop sidebar */}
       <Sidebar />
+
+      {/* Mobile drawer */}
+      <MobileDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
+
       <div className="main-content">
-        <Navbar title={title} onSearchOpen={() => setSearchOpen(true)} />
+        <Navbar
+          title={title}
+          onSearchOpen={() => setSearchOpen(true)}
+          onMenuOpen={() => setDrawerOpen(true)}
+        />
         <div className="page-body">
           <AnimatePresence mode="wait">
             <motion.div

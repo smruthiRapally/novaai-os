@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import employees from '../../data/employees';
+import { formatINR } from '../../utils/format';
 
 const statusClass = { Active: 'badge-green', 'On Leave': 'badge-yellow', Inactive: 'badge-red' };
 const roleColor = { Engineering: '#3B82F6', Product: '#8B5CF6', Design: '#F59E0B', Sales: '#10B981', Marketing: '#EF4444', Operations: '#22D3EE' };
@@ -48,7 +49,7 @@ export default function EmployeeTable() {
                   </span>
                 </td>
                 <td style={{ color: 'var(--text-2)' }}>{e.location}</td>
-                <td style={{ fontWeight: 600 }}>${e.salary.toLocaleString()}</td>
+                <td style={{ fontWeight: 600 }}>{formatINR(e.salary)}</td>
                 <td><span className={`badge ${statusClass[e.status]}`}>{e.status}</span></td>
                 <td style={{ color: 'var(--text-3)' }}>{e.joined}</td>
               </motion.tr>

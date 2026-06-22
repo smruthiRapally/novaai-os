@@ -3,21 +3,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import StatCard from '../components/dashboard/StatCard';
 import { RevenueAreaChart, ProfitLossChart } from '../components/dashboard/RevenueChart';
-import { MdPeople, MdAttachMoney, MdWork, MdTrendingUp, MdClose, MdCheckCircle } from 'react-icons/md';
+import { MdPeople, MdAttachMoney, MdWork, MdTrendingUp, MdClose } from 'react-icons/md';
 import projects from '../data/projects';
 import customers from '../data/customers';
+import { formatINR } from '../utils/format';
 
 const activeCustomers = customers.filter(c => c.status === 'Active').length;
 const totalMRR = customers.reduce((s, c) => s + c.mrr, 0);
 const openProjects = projects.filter(p => p.status !== 'Done').length;
 
 const activityFeed = [
-  { id: 1, icon: '🎉', color: '#10B981', title: 'Acme Corp upgraded to Enterprise', time: '2h ago', user: 'Rahul Sharma', desc: 'Account upgraded from Pro to Enterprise plan. MRR increased by ₹3,310.', project: 'Marketing Site', date: 'Jun 22, 2026', type: 'Revenue' },
+  { id: 1, icon: '🎉', color: '#10B981', title: 'Acme Corp upgraded to Enterprise', time: '2h ago', user: 'Rahul Sharma', desc: 'Account upgraded from Pro to Enterprise plan. MRR increased by ₹2,76,000.', project: 'Marketing Site', date: 'Jun 22, 2026', type: 'Revenue' },
   { id: 2, icon: '👋', color: '#8B5CF6', title: 'New team member onboarded', time: '5h ago', user: 'Anika Patel', desc: 'Anika Patel joined as Frontend Engineer. Access granted to all project repos.', project: 'Analytics Tool', date: 'Jun 22, 2026', type: 'HR' },
   { id: 3, icon: '🚀', color: '#F59E0B', title: 'Portfolio Website moved to In Progress', time: '1d ago', user: 'Priya Nair', desc: 'Project status updated. Sprint 3 kicked off with 4 active tasks.', project: 'Portfolio Website', date: 'Jun 21, 2026', type: 'Project' },
   { id: 4, icon: '⚠️', color: '#EF4444', title: 'Nova Systems account churned', time: '2d ago', user: 'Arjun Mehta', desc: 'Account closed. Reason: pricing. Follow-up scheduled with sales team.', project: 'Client Dashboard', date: 'Jun 20, 2026', type: 'Customer' },
   { id: 5, icon: '✅', color: '#22D3EE', title: 'Landing Page marked complete', time: '3d ago', user: 'Tom Hughes', desc: 'Project delivered on time. Client satisfaction score: 9/10. Invoice sent.', project: 'Landing Page', date: 'Jun 19, 2026', type: 'Project' },
-  { id: 6, icon: '📊', color: '#3B82F6', title: 'Q2 Financial Report generated', time: '4d ago', user: 'System', desc: 'Automated Q2 report generated. Revenue: ₹80,000. Expenses: ₹52,000. Profit: ₹28,000.', project: '—', date: 'Jun 18, 2026', type: 'Report' },
+  { id: 6, icon: '📊', color: '#3B82F6', title: 'Q2 Financial Report generated', time: '4d ago', user: 'System', desc: 'Automated Q2 report generated. Revenue: ₹80,00,000. Expenses: ₹52,00,000. Profit: ₹28,00,000.', project: '—', date: 'Jun 18, 2026', type: 'Report' },
 ];
 
 const typeColor = { Revenue: '#10B981', HR: '#8B5CF6', Project: '#F59E0B', Customer: '#EF4444', Report: '#3B82F6' };
@@ -34,10 +35,10 @@ export default function Dashboard() {
       </div>
 
       <div className="stat-grid">
-        <StatCard index={0} label="Monthly Recurring Revenue" value={`$${totalMRR.toLocaleString()}`} change="18% vs last month" changeDir="up" icon={<MdAttachMoney size={20} />} color="var(--green)" to="/revenue" />
+        <StatCard index={0} label="Monthly Recurring Revenue" value={formatINR(totalMRR)} change="18% vs last month" changeDir="up" icon={<MdAttachMoney size={20} />} color="var(--green)" to="/revenue" />
         <StatCard index={1} label="Active Customers" value={activeCustomers} change="2 new this month" changeDir="up" icon={<MdPeople size={20} />} color="var(--purple)" to="/customers" />
         <StatCard index={2} label="Open Projects" value={openProjects} change="1 overdue" changeDir="down" icon={<MdWork size={20} />} color="var(--orange)" to="/projects" />
-        <StatCard index={3} label="ARR" value={`$${(totalMRR * 12).toLocaleString()}`} change="on track" changeDir="up" icon={<MdTrendingUp size={20} />} color="var(--cyan)" to="/revenue" />
+        <StatCard index={3} label="ARR" value={formatINR(totalMRR * 12)} change="on track" changeDir="up" icon={<MdTrendingUp size={20} />} color="var(--cyan)" to="/revenue" />
       </div>
 
       <div className="charts-row" style={{ marginBottom: 24 }}>
@@ -67,7 +68,7 @@ export default function Dashboard() {
         <ProfitLossChart />
       </div>
 
-      <div className="glass-card">
+      <div className="glass-card desktop-only">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
           <div className="chart-title" style={{ marginBottom: 0 }}>Recent Customers</div>
           <button className="btn btn-outline" style={{ fontSize: '0.8rem', padding: '6px 14px' }} onClick={() => navigate('/customers')}>View all</button>
@@ -86,12 +87,37 @@ export default function Dashboard() {
                   </td>
                   <td style={{ color: 'var(--text-2)' }}>{c.company}</td>
                   <td>{c.plan}</td>
-                  <td style={{ color: 'var(--green)', fontWeight: 600 }}>{c.mrr > 0 ? `$${c.mrr.toLocaleString()}` : '—'}</td>
+                  <td style={{ color: 'var(--green)', fontWeight: 600 }}>{c.mrr > 0 ? formatINR(c.mrr) : '—'}</td>
                   <td><span className={`badge ${c.status === 'Active' ? 'badge-green' : c.status === 'Churned' ? 'badge-red' : c.status === 'Trial' ? 'badge-yellow' : 'badge-cyan'}`}>{c.status}</span></td>
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+      </div>
+
+      {/* Mobile customer cards — shown instead of table on small screens */}
+      <div className="glass-card mobile-only" style={{ marginTop: 0 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+          <div className="chart-title" style={{ marginBottom: 0 }}>Recent Customers</div>
+          <button className="btn btn-outline" style={{ fontSize: '0.75rem', padding: '6px 12px', minHeight: 'unset' }} onClick={() => navigate('/customers')}>View all</button>
+        </div>
+        <div className="mobile-customer-list" style={{ display: 'block', marginBottom: 0 }}>
+          {customers.slice(0, 5).map(c => (
+            <div key={c.id} className="mobile-row-card" onClick={() => navigate('/customers')}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <div style={{ width: 36, height: 36, borderRadius: 9, background: `${c.color}22`, color: c.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.85rem', flexShrink: 0 }}>{c.avatar}</div>
+                <div>
+                  <div style={{ fontWeight: 700, fontSize: '0.875rem' }}>{c.name}</div>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--text-3)' }}>{c.company} · {c.plan}</div>
+                </div>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8 }}>
+                <span className={`badge ${c.status === 'Active' ? 'badge-green' : c.status === 'Churned' ? 'badge-red' : 'badge-yellow'}`}>{c.status}</span>
+                {c.mrr > 0 && <span style={{ fontSize: '0.8rem', color: 'var(--green)', fontWeight: 600 }}>{formatINR(c.mrr)}/mo</span>}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -119,9 +145,7 @@ export default function Dashboard() {
                   <MdClose size={18} />
                 </button>
               </div>
-
               <p style={{ color: 'var(--text-2)', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: 20 }}>{selectedActivity.desc}</p>
-
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
                 {[
                   { label: 'Date', value: selectedActivity.date },

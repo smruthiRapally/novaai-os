@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import customers from '../../data/customers';
 import { MdClose, MdEmail, MdCalendarToday, MdAttachMoney } from 'react-icons/md';
+import { formatINR } from '../../utils/format';
 
 const statusClass = { Active: 'badge-green', Churned: 'badge-red', Trial: 'badge-yellow', Pending: 'badge-cyan' };
 
@@ -31,7 +32,7 @@ export default function CustomerGrid() {
             </div>
             {c.mrr > 0 && (
               <div style={{ marginTop: 10, fontSize: '0.8rem', color: 'var(--green)', fontWeight: 600 }}>
-                ${c.mrr.toLocaleString()} / mo
+                {formatINR(c.mrr)} / mo
               </div>
             )}
           </motion.div>
@@ -65,7 +66,7 @@ export default function CustomerGrid() {
                 {[
                   { label: 'Plan', value: selected.plan },
                   { label: 'Status', value: <span className={`badge ${statusClass[selected.status]}`}>{selected.status}</span> },
-                  { label: 'MRR', value: selected.mrr > 0 ? `$${selected.mrr.toLocaleString()}` : '—', color: 'var(--green)' },
+                  { label: 'MRR', value: selected.mrr > 0 ? formatINR(selected.mrr) : '—', color: 'var(--green)' },
                   { label: 'Joined', value: selected.joined },
                   { label: 'Meetings', value: selected.meetings },
                   { label: 'Invoices', value: selected.invoices },
