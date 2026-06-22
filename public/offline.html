@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline – NOVA AI</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #0F1117; color: #F8FAFC;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 24px;
+    }
+    .icon {
+      width: 72px; height: 72px; border-radius: 18px; margin: 0 auto 24px;
+      background: linear-gradient(135deg, #8B5CF6, #22D3EE);
+      display: flex; align-items: center; justify-content: center;
+    }
+    h1 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px;
+         background: linear-gradient(135deg, #C4B5FD, #22D3EE);
+         -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p { color: #64748B; font-size: 1rem; line-height: 1.6; max-width: 380px; margin: 0 auto 28px; }
+    button {
+      padding: 12px 28px; border-radius: 10px; border: none; cursor: pointer;
+      background: linear-gradient(135deg, #8B5CF6, #6D28D9); color: #fff;
+      font-size: 0.95rem; font-weight: 600; font-family: inherit;
+    }
+    button:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="icon">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h1>You're offline</h1>
+    <p>NOVA AI needs an internet connection to load. Check your connection and try again.</p>
+    <button onclick="window.location.reload()">Try Again</button>
+  </div>
+</body>
+</html>
