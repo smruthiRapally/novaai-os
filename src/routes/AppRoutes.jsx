@@ -12,7 +12,7 @@ import AIInsights from '../pages/AIInsights';
 import Settings from '../pages/Settings';
 import Login from '../pages/Login';
 
-export default function AppRoutes() {
+export default function AppRoutes({ theme, setTheme }) {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
@@ -25,7 +25,7 @@ export default function AppRoutes() {
         <Route path="/revenue" element={<Revenue />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="/ai" element={<AIInsights />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path="/settings" element={<Settings theme={theme} setTheme={setTheme} />} />
       </Route>
     </Routes>
   );

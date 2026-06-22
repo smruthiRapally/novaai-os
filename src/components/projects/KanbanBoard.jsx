@@ -114,7 +114,7 @@ export default function KanbanBoard() {
                 </div>
                 <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
                   {selected.team.map(m => (
-                    <span key={m} style={{ background: 'var(--purple-dim)', color: 'var(--purple)', borderRadius: 20, padding: '4px 12px', fontSize: '0.8rem', fontWeight: 500 }}>{m}</span>
+                    <span key={m} style={{ background: 'var(--accent-dim)', color: 'var(--accent)', borderRadius: 20, padding: '4px 12px', fontSize: '0.8rem', fontWeight: 500 }}>{m}</span>
                   ))}
                 </div>
               </div>

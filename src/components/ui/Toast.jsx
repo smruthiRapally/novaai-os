@@ -6,7 +6,7 @@ import { MdCheckCircle, MdError, MdInfo } from 'react-icons/md';
 const icons = {
   success: <MdCheckCircle size={18} color="var(--green)" />,
   error: <MdError size={18} color="var(--red)" />,
-  info: <MdInfo size={18} color="var(--cyan)" />,
+  info: <MdInfo size={18} color="var(--info)" />,
 };
 
 export default function Toast() {

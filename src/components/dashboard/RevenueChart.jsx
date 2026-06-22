@@ -71,8 +71,8 @@ export function RevenueAreaChart({ compact = false }) {
         <AreaChart data={data}>
           <defs>
             <linearGradient id="gRev" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#8B5CF6" stopOpacity={0.25} />
-              <stop offset="95%" stopColor="#8B5CF6" stopOpacity={0} />
+              <stop offset="5%" stopColor="#DC2626" stopOpacity={0.22} />
+              <stop offset="95%" stopColor="#DC2626" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="gExp" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#F59E0B" stopOpacity={0.25} />
@@ -84,7 +84,7 @@ export function RevenueAreaChart({ compact = false }) {
           <YAxis stroke="transparent" tick={{ fill: '#64748B', fontSize: 11 }} tickFormatter={fmt} />
           <Tooltip contentStyle={tooltip} formatter={(v, n) => [fmtFull(v), n]} />
           <Legend wrapperStyle={{ fontSize: 12 }} />
-          <Area type="monotone" dataKey="revenue" name="Revenue" stroke="#8B5CF6" fill="url(#gRev)" strokeWidth={2.5} dot={false} />
+          <Area type="monotone" dataKey="revenue" name="Revenue" stroke="#DC2626" fill="url(#gRev)" strokeWidth={2.5} dot={false} />
           <Area type="monotone" dataKey="expenses" name="Expenses" stroke="#F59E0B" fill="url(#gExp)" strokeWidth={2.5} dot={false} />
         </AreaChart>
       </ResponsiveContainer>
@@ -134,7 +134,7 @@ export function RevenueLineChart() {
         <YAxis stroke="transparent" tick={{ fill: '#64748B', fontSize: 11 }} tickFormatter={fmt} />
         <Tooltip contentStyle={tooltip} formatter={(v, n) => [fmtFull(v), n]} />
         <Legend wrapperStyle={{ fontSize: 12 }} />
-        <Line type="monotone" dataKey="revenue" name="Revenue" stroke="#8B5CF6" strokeWidth={2.5} dot={false} />
+        <Line type="monotone" dataKey="revenue" name="Revenue" stroke="#DC2626" strokeWidth={2.5} dot={false} />
         <Line type="monotone" dataKey="expenses" name="Expenses" stroke="#F59E0B" strokeWidth={2.5} dot={false} />
         <Line type="monotone" dataKey="profit" name="Profit" stroke="#10B981" strokeWidth={2.5} dot={false} />
       </LineChart>

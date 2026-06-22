@@ -72,7 +72,7 @@ export default function Navbar({ title, onSearchOpen, onMenuOpen }) {
             <span style={{
               position: 'absolute', top: 6, right: 6,
               width: 7, height: 7, borderRadius: '50%',
-              background: 'var(--purple)', border: '1.5px solid #0F1117',
+              background: 'var(--accent)', border: '1.5px solid #0F1117',
             }} />
           </motion.div>
 
@@ -120,10 +120,10 @@ export default function Navbar({ title, onSearchOpen, onMenuOpen }) {
             whileTap={{ scale: 0.94 }}
             style={{
               width: 36, height: 36, borderRadius: 9, cursor: 'pointer',
-              background: 'linear-gradient(135deg, #C084FC, #818CF8)',
+              background: 'var(--accent)',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               fontWeight: 800, fontSize: '0.9rem', color: '#fff',
-              boxShadow: showProfile ? '0 0 0 2px var(--purple)' : '0 0 12px rgba(192,132,252,0.3)',
+              boxShadow: showProfile ? '0 0 0 2px var(--accent)' : '0 12px 24px rgba(220,38,38,0.16)',
               transition: 'box-shadow 0.2s',
             }}
           >
@@ -150,7 +150,7 @@ export default function Navbar({ title, onSearchOpen, onMenuOpen }) {
                   <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                     <div style={{
                       width: 36, height: 36, borderRadius: 9, flexShrink: 0,
-                      background: 'linear-gradient(135deg, #C084FC, #818CF8)',
+                      background: 'var(--accent)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       fontWeight: 800, fontSize: '0.9rem', color: '#fff',
                     }}>S</div>

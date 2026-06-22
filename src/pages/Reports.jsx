@@ -7,11 +7,11 @@ import { useToast } from '../context/ToastContext';
 const reports = [
   { id: 1, icon: <MdBarChart size={22} />, title: 'Q2 2026 Financial Report', desc: 'Revenue, expenses and P&L for Q2', date: 'Jun 30, 2026', type: 'Finance', color: '#10B981',
     insights: ['Revenue grew 28% QoQ to ₹2,44,000', 'May had a ₹5,000 loss due to infrastructure spend', 'Jun was the best month: ₹28,000 profit', 'Expenses increased 18% due to new hires'] },
-  { id: 2, icon: <MdPeople size={22} />, title: 'Customer Health Report', desc: 'Churn analysis and retention metrics', date: 'Jun 22, 2026', type: 'Customers', color: '#8B5CF6',
+  { id: 2, icon: <MdPeople size={22} />, title: 'Customer Health Report', desc: 'Churn analysis and retention metrics', date: 'Jun 22, 2026', type: 'Customers', color: '#64748B',
     insights: ['Churn rate at 2.1% — below industry benchmark', '1 account churned (Nova Systems) due to pricing', '2 trial accounts in conversion pipeline', 'NPS score: 62 (up from 54 last quarter)'] },
   { id: 3, icon: <MdWork size={22} />, title: 'Team Performance Review', desc: 'Productivity and velocity metrics', date: 'Jun 20, 2026', type: 'HR', color: '#F59E0B',
     insights: ['Sprint velocity up 23% after retro changes', '5 of 8 projects on schedule', 'Average task completion time: 2.3 days', '1 team member on leave, coverage arranged'] },
-  { id: 4, icon: <MdTrendingUp size={22} />, title: 'Sales Pipeline Summary', desc: 'Deals, conversion rates, forecasts', date: 'Jun 15, 2026', type: 'Sales', color: '#22D3EE',
+  { id: 4, icon: <MdTrendingUp size={22} />, title: 'Sales Pipeline Summary', desc: 'Deals, conversion rates, forecasts', date: 'Jun 15, 2026', type: 'Sales', color: '#F59E0B',
     insights: ['Pipeline coverage: 2.4x quota', '4 deals in final negotiation stage', 'Close rate: 34% (up from 28% last quarter)', 'Forecasted new MRR: ₹12,500 this month'] },
   { id: 5, icon: <MdBarChart size={22} />, title: 'Infrastructure Cost Report', desc: 'Cloud spend and optimization', date: 'Jun 10, 2026', type: 'Engineering', color: '#EF4444',
     insights: ['AWS spend: ₹8,200/month (-12% after optimization)', 'Uptime: 99.97% — 0 incidents this quarter', 'API avg response time: 142ms (within SLA)', 'Database storage grew 34% — plan upgrade needed'] },
@@ -19,7 +19,7 @@ const reports = [
     insights: ['CAC reduced to ₹4,200 (down 18%)', 'LTV:CAC ratio: 8.7x', 'Top channel: organic search (42% of signups)', 'Paid campaigns paused — ROI below threshold'] },
 ];
 
-const typeColor = { Finance: 'badge-green', Customers: 'badge-purple', HR: 'badge-yellow', Sales: 'badge-cyan', Engineering: 'badge-red', Marketing: 'badge-blue' };
+const typeColor = { Finance: 'badge-green', Customers: 'badge-red', HR: 'badge-yellow', Sales: 'badge-blue', Engineering: 'badge-red', Marketing: 'badge-blue' };
 
 export default function Reports() {
   const [selected, setSelected] = useState(null);

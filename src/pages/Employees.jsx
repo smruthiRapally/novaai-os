@@ -18,9 +18,9 @@ export default function Employees() {
         <p>Your team overview and HR data.</p>
       </div>
       <div className="stat-grid">
-        <StatCard index={0} label="Headcount"   value={headcount}           icon={<MdSupervisorAccount size={20} />} color="var(--purple)" />
+        <StatCard index={0} label="Headcount"   value={headcount}           icon={<MdSupervisorAccount size={20} />} color="var(--accent)" />
         <StatCard index={1} label="Remote"      value={remote}              icon={<MdLocationOn size={20} />}       color="var(--green)"  />
-        <StatCard index={2} label="Departments" value={depts}               icon={<MdWork size={20} />}             color="var(--cyan)"   />
+        <StatCard index={2} label="Departments" value={depts}               icon={<MdWork size={20} />}             color="var(--neutral)"   />
         <StatCard index={3} label="Avg Salary"  value={formatINR(avgSalary)} icon={<MdAttachMoney size={20} />}    color="var(--orange)" />
       </div>
       <EmployeeTable />

@@ -18,14 +18,14 @@ const TASKS = [
 ];
 
 const PAGES = [
-  { title: 'Dashboard', route: '/', icon: <MdDashboard size={15} />, color: '#8B5CF6' },
+  { title: 'Dashboard', route: '/', icon: <MdDashboard size={15} />, color: '#9CA3AF' },
   { title: 'Revenue', route: '/revenue', icon: <MdAttachMoney size={15} />, color: '#10B981' },
   { title: 'Reports', route: '/reports', icon: <MdBarChart size={15} />, color: '#3B82F6' },
-  { title: 'AI Insights', route: '/ai', icon: <MdAutoAwesome size={15} />, color: '#22D3EE' },
+  { title: 'AI Insights', route: '/ai', icon: <MdAutoAwesome size={15} />, color: '#9CA3AF' },
   { title: 'Projects', route: '/projects', icon: <MdWork size={15} />, color: '#F59E0B' },
   { title: 'Tasks', route: '/tasks', icon: <MdTask size={15} />, color: '#EF4444' },
-  { title: 'Customers', route: '/customers', icon: <MdPeople size={15} />, color: '#8B5CF6' },
-  { title: 'Team', route: '/employees', icon: <MdPeople size={15} />, color: '#22D3EE' },
+  { title: 'Customers', route: '/customers', icon: <MdPeople size={15} />, color: '#9CA3AF' },
+  { title: 'Team', route: '/employees', icon: <MdPeople size={15} />, color: '#9CA3AF' },
   { title: 'Settings', route: '/settings', icon: <MdDashboard size={15} />, color: '#64748B' },
 ];
 
@@ -83,7 +83,7 @@ function buildResults(query) {
   return results.slice(0, 8);
 }
 
-const typeColor = { Page: '#8B5CF6', Project: '#F59E0B', Task: '#EF4444', Customer: '#22D3EE', Report: '#3B82F6' };
+const typeColor = { Page: '#9CA3AF', Project: '#F59E0B', Task: '#EF4444', Customer: '#9CA3AF', Report: '#3B82F6' };
 
 export default function GlobalSearch({ open, onClose }) {
   const [query, setQuery] = useState('');
@@ -142,7 +142,7 @@ export default function GlobalSearch({ open, onClose }) {
             transition={{ type: 'spring', stiffness: 420, damping: 32 }}
           >
             {/* Search box */}
-            <div style={{ background: '#161821', border: '1px solid rgba(139,92,246,0.35)', borderRadius: results.length > 0 ? '16px 16px 0 0' : 16, padding: '14px 18px', display: 'flex', alignItems: 'center', gap: 12, boxShadow: '0 0 0 1px rgba(139,92,246,0.15), 0 24px 60px rgba(0,0,0,0.7)' }}>
+            <div style={{ background: '#111827', border: '1px solid rgba(220,38,38,0.18)', borderRadius: results.length > 0 ? '16px 16px 0 0' : 16, padding: '14px 18px', display: 'flex', alignItems: 'center', gap: 12, boxShadow: '0 0 0 1px rgba(220,38,38,0.12), 0 24px 60px rgba(0,0,0,0.6)' }}>
               <MdSearch size={20} style={{ color: 'var(--text-3)', flexShrink: 0 }} />
               <input
                 ref={inputRef}
@@ -167,7 +167,7 @@ export default function GlobalSearch({ open, onClose }) {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -4 }}
                   transition={{ duration: 0.12 }}
-                  style={{ background: '#161821', border: '1px solid rgba(139,92,246,0.25)', borderTop: 'none', borderRadius: '0 0 16px 16px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.6)' }}
+                  style={{ background: '#161821', border: '1px solid rgba(220,38,38,0.16)', borderTop: 'none', borderRadius: '0 0 16px 16px', overflow: 'hidden', boxShadow: '0 24px 60px rgba(0,0,0,0.6)' }}
                 >
                   {results.length === 0 ? (
                     <div style={{ padding: '28px 20px', textAlign: 'center', color: 'var(--text-3)', fontSize: '0.9rem' }}>
@@ -181,9 +181,9 @@ export default function GlobalSearch({ open, onClose }) {
                           key={`${r.type}-${r.title}-${i}`}
                           onClick={() => go(r.route)}
                           onMouseEnter={() => setActiveIdx(i)}
-                          animate={{ background: i === activeIdx ? 'rgba(139,92,246,0.1)' : 'transparent' }}
+                          animate={{ background: i === activeIdx ? 'rgba(220,38,38,0.08)' : 'transparent' }}
                           transition={{ duration: 0.1 }}
-                          style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', borderRadius: 10, cursor: 'pointer', border: i === activeIdx ? '1px solid rgba(139,92,246,0.25)' : '1px solid transparent' }}
+                          style={{ display: 'flex', alignItems: 'center', gap: 12, padding: '10px 12px', borderRadius: 10, cursor: 'pointer', border: i === activeIdx ? '1px solid rgba(220,38,38,0.2)' : '1px solid transparent' }}
                         >
                           <div style={{ width: 32, height: 32, borderRadius: 8, background: `${r.color}18`, color: r.color, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                             {r.icon}
@@ -213,13 +213,13 @@ export default function GlobalSearch({ open, onClose }) {
 
             {/* Empty state hint */}
             {!query.trim() && (
-              <div style={{ background: '#161821', border: '1px solid rgba(139,92,246,0.25)', borderTop: 'none', borderRadius: '0 0 16px 16px', padding: '16px 18px', boxShadow: '0 24px 60px rgba(0,0,0,0.6)' }}>
+              <div style={{ background: '#161821', border: '1px solid rgba(220,38,38,0.16)', borderTop: 'none', borderRadius: '0 0 16px 16px', padding: '16px 18px', boxShadow: '0 24px 60px rgba(0,0,0,0.6)' }}>
                 <div style={{ fontSize: '0.75rem', color: 'var(--text-3)', marginBottom: 10, textTransform: 'uppercase', letterSpacing: '0.07em' }}>Quick Jump</div>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {PAGES.slice(0, 6).map(p => (
                     <button key={p.route} onClick={() => go(p.route)}
                       style={{ display: 'flex', alignItems: 'center', gap: 6, padding: '5px 12px', borderRadius: 8, background: 'rgba(255,255,255,0.04)', border: '1px solid var(--border)', color: 'var(--text-2)', fontSize: '0.8rem', cursor: 'pointer', fontFamily: 'inherit', transition: 'all 0.15s' }}
-                      onMouseEnter={e => { e.currentTarget.style.background = 'var(--purple-dim)'; e.currentTarget.style.color = 'var(--purple)'; }}
+                      onMouseEnter={e => { e.currentTarget.style.background = 'var(--accent-dim)'; e.currentTarget.style.color = 'var(--accent)'; }}
                       onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = 'var(--text-2)'; }}
                     >
                       <span style={{ color: p.color }}>{p.icon}</span>

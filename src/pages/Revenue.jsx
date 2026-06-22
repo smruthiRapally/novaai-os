@@ -15,8 +15,8 @@ const profitMonths = yearData.filter(d => d.profit >= 0).length;
 const lossMonths = yearData.filter(d => d.profit < 0).length;
 
 const breakdown = [
-  { plan: 'Enterprise', count: customers.filter(c => c.plan === 'Enterprise' && c.status === 'Active').length, price: 350000, color: 'var(--purple)' },
-  { plan: 'Pro',        count: customers.filter(c => c.plan === 'Pro'        && c.status === 'Active').length, price: 74000,  color: 'var(--cyan)' },
+  { plan: 'Enterprise', count: customers.filter(c => c.plan === 'Enterprise' && c.status === 'Active').length, price: 350000, color: 'var(--accent)' },
+  { plan: 'Pro',        count: customers.filter(c => c.plan === 'Pro'        && c.status === 'Active').length, price: 74000,  color: 'var(--neutral)' },
   { plan: 'Starter',    count: customers.filter(c => c.plan === 'Starter'    && c.status === 'Active').length, price: 24000,  color: 'var(--green)' },
 ];
 
@@ -30,8 +30,8 @@ export default function Revenue() {
 
       <div className="stat-grid">
         <StatCard index={0} label="MRR" value={formatINR(mrr)} change="18% vs last month" changeDir="up" icon={<MdAttachMoney size={20} />} color="var(--green)" />
-        <StatCard index={1} label="ARR" value={formatINR(arr)} change="on track for ₹1.2Cr" changeDir="up" icon={<MdTrendingUp size={20} />} color="var(--purple)" />
-        <StatCard index={2} label="Annual Revenue" value={formatINR(totalRevenue)} change={`${profitMonths} profit months`} changeDir="up" icon={<MdAccountBalance size={20} />} color="var(--cyan)" />
+        <StatCard index={1} label="ARR" value={formatINR(arr)} change="on track for ₹1.2Cr" changeDir="up" icon={<MdTrendingUp size={20} />} color="var(--accent)" />
+        <StatCard index={2} label="Annual Revenue" value={formatINR(totalRevenue)} change={`${profitMonths} profit months`} changeDir="up" icon={<MdAccountBalance size={20} />} color="var(--neutral)" />
         <StatCard index={3} label="Annual Profit" value={formatINR(Math.abs(totalProfit))} change={`${lossMonths} loss months`} changeDir={totalProfit > 0 ? 'up' : 'down'} icon={<MdShoppingCart size={20} />} color={totalProfit > 0 ? 'var(--green)' : 'var(--red)'} />
       </div>
 

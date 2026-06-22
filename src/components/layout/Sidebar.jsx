@@ -27,9 +27,9 @@ export default function Sidebar() {
           {/* Logo mark */}
           <div style={{
             width: 34, height: 34, borderRadius: 9, flexShrink: 0,
-            background: 'linear-gradient(135deg, #8B5CF6 0%, #22D3EE 100%)',
+            background: 'var(--accent)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 0 16px rgba(139,92,246,0.4)',
+            boxShadow: '0 12px 24px rgba(220,38,38,0.16)',
           }}>
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -38,9 +38,8 @@ export default function Sidebar() {
           <div>
             <div style={{
               fontSize: '1.05rem', fontWeight: 800, letterSpacing: '-0.02em',
-              background: 'linear-gradient(135deg, #C4B5FD 0%, #22D3EE 100%)',
-              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text', lineHeight: 1.1,
+              color: 'var(--accent)',
+              lineHeight: 1.1,
             }}>
               NOVA AI
             </div>
@@ -70,7 +69,7 @@ export default function Sidebar() {
                     style={{
                       position: 'absolute', right: 10,
                       width: 5, height: 5, borderRadius: '50%',
-                      background: 'var(--purple)',
+                      background: 'var(--accent)',
                     }}
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
@@ -93,9 +92,9 @@ export default function Sidebar() {
           {/* Female avatar */}
           <div style={{
             width: 34, height: 34, borderRadius: 9, flexShrink: 0, overflow: 'hidden',
-            background: 'linear-gradient(135deg, #C084FC, #818CF8)',
+            background: 'var(--accent)',
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            boxShadow: '0 0 10px rgba(192,132,252,0.35)',
+            boxShadow: '0 12px 24px rgba(220,38,38,0.16)',
             position: 'relative',
           }}>
             {/* Minimal female avatar illustration */}

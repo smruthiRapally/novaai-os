@@ -4,7 +4,7 @@ import employees from '../../data/employees';
 import { formatINR } from '../../utils/format';
 
 const statusClass = { Active: 'badge-green', 'On Leave': 'badge-yellow', Inactive: 'badge-red' };
-const roleColor = { Engineering: '#3B82F6', Product: '#8B5CF6', Design: '#F59E0B', Sales: '#10B981', Marketing: '#EF4444', Operations: '#22D3EE' };
+const roleColor = { Engineering: '#3B82F6', Product: '#DC2626', Design: '#F59E0B', Sales: '#10B981', Marketing: '#EF4444', Operations: '#6B7280' };
 
 export default function EmployeeTable() {
   return (

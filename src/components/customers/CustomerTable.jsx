@@ -4,7 +4,7 @@ import customers from '../../data/customers';
 import { MdClose, MdEmail, MdCalendarToday, MdAttachMoney } from 'react-icons/md';
 import { formatINR } from '../../utils/format';
 
-const statusClass = { Active: 'badge-green', Churned: 'badge-red', Trial: 'badge-yellow', Pending: 'badge-cyan' };
+const statusClass = { Active: 'badge-green', Churned: 'badge-red', Trial: 'badge-yellow', Pending: 'badge-blue' };
 
 export default function CustomerGrid() {
   const [selected, setSelected] = useState(null);

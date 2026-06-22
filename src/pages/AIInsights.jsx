@@ -8,7 +8,7 @@ export default function AIInsightsPage() {
     <>
       <div className="page-header">
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 6 }}>
-          <div style={{ width: 36, height: 36, borderRadius: 9, background: 'linear-gradient(135deg, var(--purple), var(--cyan))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: 36, height: 36, borderRadius: 9, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <MdAutoAwesome size={18} color="#fff" />
           </div>
           <h1 style={{ fontSize: '1.6rem', fontWeight: 800, letterSpacing: '-0.03em' }}>AI Insights</h1>
@@ -19,7 +19,7 @@ export default function AIInsightsPage() {
       </div>
 
       <div className="glass-card" style={{ marginBottom: 24, display: 'flex', alignItems: 'center', gap: 16 }}>
-        <div style={{ width: 42, height: 42, borderRadius: 11, background: 'linear-gradient(135deg, var(--purple), var(--cyan))', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+        <div style={{ width: 42, height: 42, borderRadius: 11, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
           <MdAutoAwesome size={20} color="#fff" />
         </div>
         <div>

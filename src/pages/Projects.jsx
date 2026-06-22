@@ -23,7 +23,7 @@ export default function Projects() {
       </div>
 
       <div className="stat-grid">
-        <StatCard index={0} label="Total"       value={projects.length} icon={<MdWork size={20} />}        color="var(--purple)" />
+        <StatCard index={0} label="Total"       value={projects.length} icon={<MdWork size={20} />}        color="var(--accent)" />
         <StatCard index={1} label="In Progress" value={inProgress}      icon={<MdPlayCircle size={20} />}  color="var(--orange)" />
         <StatCard index={2} label="To Do"       value={todo}            icon={<MdPending size={20} />}     color="var(--text-2)" />
         <StatCard index={3} label="Done"        value={done}            icon={<MdCheckCircle size={20} />} color="var(--green)" />
@@ -125,7 +125,7 @@ export default function Projects() {
                 </div>
                 <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
                   {selected.team.map(m => (
-                    <span key={m} style={{ background: 'var(--purple-dim)', color: 'var(--purple)', borderRadius: 20, padding: '4px 12px', fontSize: '0.78rem', fontWeight: 500 }}>{m}</span>
+                    <span key={m} style={{ background: 'var(--accent-dim)', color: 'var(--accent)', borderRadius: 20, padding: '4px 12px', fontSize: '0.78rem', fontWeight: 500 }}>{m}</span>
                   ))}
                 </div>
               </div>

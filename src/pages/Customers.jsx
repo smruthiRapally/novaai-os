@@ -17,9 +17,9 @@ export default function Customers() {
         <p>Manage and track your customer base. Tap any card to view details.</p>
       </div>
       <div className="stat-grid">
-        <StatCard index={0} label="Total Customers" value={customers.length} icon={<MdPeople size={20} />} color="var(--purple)" />
+        <StatCard index={0} label="Total Customers" value={customers.length} icon={<MdPeople size={20} />} color="var(--accent)" />
         <StatCard index={1} label="Active" value={active} icon={<MdStars size={20} />} color="var(--green)" />
-        <StatCard index={2} label="Total MRR" value={formatINR(mrr)} icon={<MdAttachMoney size={20} />} color="var(--cyan)" />
+        <StatCard index={2} label="Total MRR" value={formatINR(mrr)} icon={<MdAttachMoney size={20} />} color="var(--neutral)" />
         <StatCard index={3} label="Churned" value={churned} icon={<MdTrendingDown size={20} />} color="var(--red)" />
       </div>
       <CustomerGrid />

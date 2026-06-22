@@ -14,14 +14,14 @@ const openProjects = projects.filter(p => p.status !== 'Done').length;
 
 const activityFeed = [
   { id: 1, icon: '🎉', color: '#10B981', title: 'Acme Corp upgraded to Enterprise', time: '2h ago', user: 'Rahul Sharma', desc: 'Account upgraded from Pro to Enterprise plan. MRR increased by ₹2,76,000.', project: 'Marketing Site', date: 'Jun 22, 2026', type: 'Revenue' },
-  { id: 2, icon: '👋', color: '#8B5CF6', title: 'New team member onboarded', time: '5h ago', user: 'Anika Patel', desc: 'Anika Patel joined as Frontend Engineer. Access granted to all project repos.', project: 'Analytics Tool', date: 'Jun 22, 2026', type: 'HR' },
+  { id: 2, icon: '👋', color: '#6B7280', title: 'New team member onboarded', time: '5h ago', user: 'Anika Patel', desc: 'Anika Patel joined as Frontend Engineer. Access granted to all project repos.', project: 'Analytics Tool', date: 'Jun 22, 2026', type: 'HR' },
   { id: 3, icon: '🚀', color: '#F59E0B', title: 'Portfolio Website moved to In Progress', time: '1d ago', user: 'Priya Nair', desc: 'Project status updated. Sprint 3 kicked off with 4 active tasks.', project: 'Portfolio Website', date: 'Jun 21, 2026', type: 'Project' },
   { id: 4, icon: '⚠️', color: '#EF4444', title: 'Nova Systems account churned', time: '2d ago', user: 'Arjun Mehta', desc: 'Account closed. Reason: pricing. Follow-up scheduled with sales team.', project: 'Client Dashboard', date: 'Jun 20, 2026', type: 'Customer' },
-  { id: 5, icon: '✅', color: '#22D3EE', title: 'Landing Page marked complete', time: '3d ago', user: 'Tom Hughes', desc: 'Project delivered on time. Client satisfaction score: 9/10. Invoice sent.', project: 'Landing Page', date: 'Jun 19, 2026', type: 'Project' },
+  { id: 5, icon: '✅', color: '#6B7280', title: 'Landing Page marked complete', time: '3d ago', user: 'Tom Hughes', desc: 'Project delivered on time. Client satisfaction score: 9/10. Invoice sent.', project: 'Landing Page', date: 'Jun 19, 2026', type: 'Project' },
   { id: 6, icon: '📊', color: '#3B82F6', title: 'Q2 Financial Report generated', time: '4d ago', user: 'System', desc: 'Automated Q2 report generated. Revenue: ₹80,00,000. Expenses: ₹52,00,000. Profit: ₹28,00,000.', project: '—', date: 'Jun 18, 2026', type: 'Report' },
 ];
 
-const typeColor = { Revenue: '#10B981', HR: '#8B5CF6', Project: '#F59E0B', Customer: '#EF4444', Report: '#3B82F6' };
+const typeColor = { Revenue: '#10B981', HR: '#6B7280', Project: '#F59E0B', Customer: '#EF4444', Report: '#6B7280' };
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -36,9 +36,9 @@ export default function Dashboard() {
 
       <div className="stat-grid">
         <StatCard index={0} label="Monthly Recurring Revenue" value={formatINR(totalMRR)} change="18% vs last month" changeDir="up" icon={<MdAttachMoney size={20} />} color="var(--green)" to="/revenue" />
-        <StatCard index={1} label="Active Customers" value={activeCustomers} change="2 new this month" changeDir="up" icon={<MdPeople size={20} />} color="var(--purple)" to="/customers" />
+        <StatCard index={1} label="Active Customers" value={activeCustomers} change="2 new this month" changeDir="up" icon={<MdPeople size={20} />} color="var(--accent)" to="/customers" />
         <StatCard index={2} label="Open Projects" value={openProjects} change="1 overdue" changeDir="down" icon={<MdWork size={20} />} color="var(--orange)" to="/projects" />
-        <StatCard index={3} label="ARR" value={formatINR(totalMRR * 12)} change="on track" changeDir="up" icon={<MdTrendingUp size={20} />} color="var(--cyan)" to="/revenue" />
+        <StatCard index={3} label="ARR" value={formatINR(totalMRR * 12)} change="on track" changeDir="up" icon={<MdTrendingUp size={20} />} color="var(--neutral)" to="/revenue" />
       </div>
 
       <div className="charts-row" style={{ marginBottom: 24 }}>
@@ -88,7 +88,7 @@ export default function Dashboard() {
                   <td style={{ color: 'var(--text-2)' }}>{c.company}</td>
                   <td>{c.plan}</td>
                   <td style={{ color: 'var(--green)', fontWeight: 600 }}>{c.mrr > 0 ? formatINR(c.mrr) : '—'}</td>
-                  <td><span className={`badge ${c.status === 'Active' ? 'badge-green' : c.status === 'Churned' ? 'badge-red' : c.status === 'Trial' ? 'badge-yellow' : 'badge-cyan'}`}>{c.status}</span></td>
+                  <td><span className={`badge ${c.status === 'Active' ? 'badge-green' : c.status === 'Churned' ? 'badge-red' : c.status === 'Trial' ? 'badge-yellow' : 'badge-blue'}`}>{c.status}</span></td>
                 </tr>
               ))}
             </tbody>

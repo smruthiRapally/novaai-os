@@ -6,7 +6,7 @@ const projects = [
     team: ['Priya Nair', 'Anika Patel'],
     tasks: { total: 12, done: 8 },
     notes: 'Client approved wireframes. Moving to development phase.',
-    color: '#8B5CF6'
+    color: '#DC2626'
   },
   {
     id: 2, title: 'Analytics Tool', client: 'Karan Singh', assignee: 'Sarah Chen',
@@ -15,7 +15,7 @@ const projects = [
     team: ['Sarah Chen', 'Marcus Bell'],
     tasks: { total: 18, done: 8 },
     notes: 'Backend API 80% complete. Frontend integration starting.',
-    color: '#22D3EE'
+    color: '#6B7280'
   },
   {
     id: 3, title: 'Mobile App', client: 'Divya Nair', assignee: 'Anika Patel',
@@ -60,7 +60,7 @@ const projects = [
     team: ['Olivia Grant'],
     tasks: { total: 9, done: 1 },
     notes: 'Scoped and estimated. Awaiting project kickoff.',
-    color: '#8B5CF6'
+    color: '#DC2626'
   },
   {
     id: 8, title: 'Pricing Page', client: 'Priya Reddy', assignee: 'Priya Nair',
@@ -69,7 +69,7 @@ const projects = [
     team: ['Priya Nair'],
     tasks: { total: 6, done: 5 },
     notes: 'Final review pending with client.',
-    color: '#22D3EE'
+    color: '#6B7280'
   },
 ];
 

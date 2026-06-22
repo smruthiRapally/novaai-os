@@ -25,10 +25,10 @@ export default function Login() {
         transition={{ duration: 0.4, ease: 'easeOut' }}
       >
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
-          <div style={{ width: 52, height: 52, borderRadius: 14, background: 'linear-gradient(135deg, var(--purple), var(--cyan))', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+          <div style={{ width: 52, height: 52, borderRadius: 14, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
             <MdSpaceDashboard size={26} color="#fff" />
           </div>
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: 6, background: 'linear-gradient(135deg, #C4B5FD, #22D3EE)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>NOVA AI</h1>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: 6, color: 'var(--accent)' }}>NOVA AI</h1>
           <p style={{ color: 'var(--text-2)', fontSize: '0.82rem' }}>Startup Intelligence Platform</p>
         </div>
 

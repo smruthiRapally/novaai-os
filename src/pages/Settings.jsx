@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MdPerson, MdNotifications, MdPalette, MdSecurity, MdSave } from 'react-icons/md';
 import { useToast } from '../context/ToastContext';
@@ -10,11 +10,15 @@ const tabs = [
   { key: 'security', label: 'Security', icon: <MdSecurity size={16} /> },
 ];
 
-export default function Settings() {
+export default function Settings({ theme, setTheme }) {
   const [activeTab, setActiveTab] = useState('profile');
   const [toggles, setToggles] = useState({ emailNotifs: true, slackNotifs: false, twoFactor: true, aiInsights: true, weeklyDigest: false });
-  const [theme, setTheme] = useState('dark');
+  const [selectedTheme, setSelectedTheme] = useState(theme || 'system');
   const { addToast } = useToast();
+
+  useEffect(() => {
+    if (theme) setSelectedTheme(theme);
+  }, [theme]);
 
   const toggle = (key) => setToggles(t => ({ ...t, [key]: !t[key] }));
 
@@ -38,7 +42,7 @@ export default function Settings() {
         {activeTab === 'profile' && (
           <motion.div className="glass-card" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24, paddingBottom: 20, borderBottom: '1px solid var(--border)' }}>
-              <div style={{ width: 60, height: 60, borderRadius: 15, background: 'linear-gradient(135deg, var(--purple), var(--cyan))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1.3rem' }}>A</div>
+              <div style={{ width: 60, height: 60, borderRadius: 15, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800, fontSize: '1.3rem', color: '#fff' }}>A</div>
               <div>
                 <div style={{ fontWeight: 700, fontSize: '1rem', marginBottom: 2 }}>Alex Founder</div>
                 <div style={{ fontSize: '0.82rem', color: 'var(--text-2)' }}>alex@startup.ai · Admin</div>
@@ -84,14 +88,18 @@ export default function Settings() {
                 { key: 'light', label: 'Light', emoji: '☀️' },
                 { key: 'system', label: 'System', emoji: '💻' },
               ].map(t => (
-                <div key={t.key} onClick={() => { setTheme(t.key); addToast(`Theme set to ${t.label}`, 'info'); }}
-                  style={{ padding: '16px', borderRadius: 12, border: `2px solid ${theme === t.key ? 'var(--purple)' : 'var(--border)'}`, background: theme === t.key ? 'var(--purple-dim)' : 'transparent', cursor: 'pointer', textAlign: 'center', transition: 'all 0.15s' }}>
+                <div key={t.key} onClick={() => {
+                    setSelectedTheme(t.key);
+                    setTheme(t.key);
+                    addToast(`Theme set to ${t.label}`, 'info');
+                  }}
+                  style={{ padding: '16px', borderRadius: 12, border: `2px solid ${selectedTheme === t.key ? 'var(--accent)' : 'var(--border)'}`, background: selectedTheme === t.key ? 'var(--accent-dim)' : 'transparent', cursor: 'pointer', textAlign: 'center', transition: 'all 0.15s' }}>
                   <div style={{ fontSize: '1.5rem', marginBottom: 6 }}>{t.emoji}</div>
-                  <div style={{ fontSize: '0.85rem', fontWeight: 600, color: theme === t.key ? 'var(--purple)' : 'var(--text-2)' }}>{t.label}</div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 600, color: selectedTheme === t.key ? 'var(--accent)' : 'var(--text-2)' }}>{t.label}</div>
                 </div>
               ))}
             </div>
-            <div style={{ fontSize: '0.8rem', color: 'var(--text-3)' }}>Note: Full light/system mode requires additional CSS implementation.</div>
+            <div style={{ fontSize: '0.8rem', color: 'var(--text-3)' }}>Theme choice is persisted and follows the selected system preference when set to System.</div>
           </motion.div>
         )}
 
