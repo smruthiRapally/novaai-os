@@ -14,8 +14,8 @@ const notifications = [
 ];
 
 const dropdownItems = [
-  { icon: <MdPerson size={16} />, label: 'Profile', route: '/settings' },
-  { icon: <MdSettings size={16} />, label: 'Settings', route: '/settings' },
+  { icon: <MdPerson size={16} />, label: 'Profile', route: '/app/settings' },
+  { icon: <MdSettings size={16} />, label: 'Settings', route: '/app/settings' },
   { icon: <MdOutlineNotifications size={16} />, label: 'Notifications', route: null },
   { icon: <MdLogout size={16} />, label: 'Logout', route: '/login', danger: true },
 ];

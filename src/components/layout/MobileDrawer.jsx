@@ -8,15 +8,15 @@ import {
 } from 'react-icons/md';
 
 const nav = [
-  { to: '/', icon: MdDashboard, label: 'Dashboard' },
-  { to: '/projects', icon: MdWork, label: 'Projects' },
-  { to: '/tasks', icon: MdTask, label: 'Tasks' },
-  { to: '/customers', icon: MdPeople, label: 'Customers' },
-  { to: '/employees', icon: MdSupervisorAccount, label: 'Team' },
-  { to: '/revenue', icon: MdAttachMoney, label: 'Revenue' },
-  { to: '/reports', icon: MdBarChart, label: 'Reports' },
-  { to: '/ai', icon: MdAutoAwesome, label: 'AI Insights' },
-  { to: '/settings', icon: MdSettings, label: 'Settings' },
+  { to: '/app', icon: MdDashboard, label: 'Dashboard' },
+  { to: '/app/projects', icon: MdWork, label: 'Projects' },
+  { to: '/app/tasks', icon: MdTask, label: 'Tasks' },
+  { to: '/app/customers', icon: MdPeople, label: 'Customers' },
+  { to: '/app/employees', icon: MdSupervisorAccount, label: 'Team' },
+  { to: '/app/revenue', icon: MdAttachMoney, label: 'Revenue' },
+  { to: '/app/reports', icon: MdBarChart, label: 'Reports' },
+  { to: '/app/ai', icon: MdAutoAwesome, label: 'AI Insights' },
+  { to: '/app/settings', icon: MdSettings, label: 'Settings' },
 ];
 
 export default function MobileDrawer({ open, onClose }) {
@@ -75,7 +75,7 @@ export default function MobileDrawer({ open, onClose }) {
             <NavLink
               key={to}
               to={to}
-              end={to === '/'}
+              end={to === '/app'}
               className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
               onClick={onClose}
               style={{ fontSize: '0.95rem', padding: '12px 14px', marginBottom: 3 }}

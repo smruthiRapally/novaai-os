@@ -8,14 +8,14 @@ import {
 } from 'react-icons/md';
 
 const nav = [
-  { to: '/', icon: MdDashboard, label: 'Dashboard' },
-  { to: '/projects', icon: MdWork, label: 'Projects' },
-  { to: '/tasks', icon: MdTask, label: 'Tasks' },
-  { to: '/customers', icon: MdPeople, label: 'Customers' },
-  { to: '/employees', icon: MdSupervisorAccount, label: 'Team' },
-  { to: '/revenue', icon: MdAttachMoney, label: 'Revenue' },
-  { to: '/reports', icon: MdBarChart, label: 'Reports' },
-  { to: '/ai', icon: MdAutoAwesome, label: 'AI Insights' },
+  { to: '/app', icon: MdDashboard, label: 'Dashboard' },
+  { to: '/app/projects', icon: MdWork, label: 'Projects' },
+  { to: '/app/tasks', icon: MdTask, label: 'Tasks' },
+  { to: '/app/customers', icon: MdPeople, label: 'Customers' },
+  { to: '/app/employees', icon: MdSupervisorAccount, label: 'Team' },
+  { to: '/app/revenue', icon: MdAttachMoney, label: 'Revenue' },
+  { to: '/app/reports', icon: MdBarChart, label: 'Reports' },
+  { to: '/app/ai', icon: MdAutoAwesome, label: 'AI Insights' },
 ];
 
 export default function Sidebar() {
@@ -56,7 +56,7 @@ export default function Sidebar() {
           <NavLink
             key={to}
             to={to}
-            end={to === '/'}
+            end={to === '/app'}
             className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}
           >
             {({ isActive }) => (
@@ -82,7 +82,7 @@ export default function Sidebar() {
 
       {/* Footer */}
       <div className="sidebar-footer">
-        <NavLink to="/settings" className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}>
+        <NavLink to="/app/settings" className={({ isActive }) => `nav-item${isActive ? ' active' : ''}`}>
           <MdSettings size={17} />
           <span>Settings</span>
         </NavLink>

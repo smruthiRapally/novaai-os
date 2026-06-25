@@ -8,15 +8,15 @@ import Toast from '../ui/Toast';
 import GlobalSearch from '../ui/GlobalSearch';
 
 const titles = {
-  '/': 'Dashboard',
-  '/customers': 'Customers',
-  '/employees': 'Team',
-  '/projects': 'Projects',
-  '/tasks': 'Tasks',
-  '/revenue': 'Revenue',
-  '/reports': 'Reports',
-  '/ai': 'AI Insights',
-  '/settings': 'Settings',
+  '/app': 'Dashboard',
+  '/app/customers': 'Customers',
+  '/app/employees': 'Team',
+  '/app/projects': 'Projects',
+  '/app/tasks': 'Tasks',
+  '/app/revenue': 'Revenue',
+  '/app/reports': 'Reports',
+  '/app/ai': 'AI Insights',
+  '/app/settings': 'Settings',
 };
 
 const pageVariants = {

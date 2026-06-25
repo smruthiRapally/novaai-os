@@ -18,24 +18,24 @@ const TASKS = [
 ];
 
 const PAGES = [
-  { title: 'Dashboard', route: '/', icon: <MdDashboard size={15} />, color: '#9CA3AF' },
-  { title: 'Revenue', route: '/revenue', icon: <MdAttachMoney size={15} />, color: '#10B981' },
-  { title: 'Reports', route: '/reports', icon: <MdBarChart size={15} />, color: '#3B82F6' },
-  { title: 'AI Insights', route: '/ai', icon: <MdAutoAwesome size={15} />, color: '#9CA3AF' },
-  { title: 'Projects', route: '/projects', icon: <MdWork size={15} />, color: '#F59E0B' },
-  { title: 'Tasks', route: '/tasks', icon: <MdTask size={15} />, color: '#EF4444' },
-  { title: 'Customers', route: '/customers', icon: <MdPeople size={15} />, color: '#9CA3AF' },
-  { title: 'Team', route: '/employees', icon: <MdPeople size={15} />, color: '#9CA3AF' },
-  { title: 'Settings', route: '/settings', icon: <MdDashboard size={15} />, color: '#64748B' },
+  { title: 'Dashboard', route: '/app', icon: <MdDashboard size={15} />, color: '#9CA3AF' },
+  { title: 'Revenue', route: '/app/revenue', icon: <MdAttachMoney size={15} />, color: '#10B981' },
+  { title: 'Reports', route: '/app/reports', icon: <MdBarChart size={15} />, color: '#3B82F6' },
+  { title: 'AI Insights', route: '/app/ai', icon: <MdAutoAwesome size={15} />, color: '#9CA3AF' },
+  { title: 'Projects', route: '/app/projects', icon: <MdWork size={15} />, color: '#F59E0B' },
+  { title: 'Tasks', route: '/app/tasks', icon: <MdTask size={15} />, color: '#EF4444' },
+  { title: 'Customers', route: '/app/customers', icon: <MdPeople size={15} />, color: '#9CA3AF' },
+  { title: 'Team', route: '/app/employees', icon: <MdPeople size={15} />, color: '#9CA3AF' },
+  { title: 'Settings', route: '/app/settings', icon: <MdDashboard size={15} />, color: '#64748B' },
 ];
 
 const REPORTS = [
-  { title: 'Q2 2026 Financial Report', route: '/reports', sub: 'Finance' },
-  { title: 'Customer Health Report', route: '/reports', sub: 'Customers' },
-  { title: 'Team Performance Review', route: '/reports', sub: 'HR' },
-  { title: 'Sales Pipeline Summary', route: '/reports', sub: 'Sales' },
-  { title: 'Infrastructure Cost Report', route: '/reports', sub: 'Engineering' },
-  { title: 'Marketing ROI Report', route: '/reports', sub: 'Marketing' },
+  { title: 'Q2 2026 Financial Report', route: '/app/reports', sub: 'Finance' },
+  { title: 'Customer Health Report', route: '/app/reports', sub: 'Customers' },
+  { title: 'Team Performance Review', route: '/app/reports', sub: 'HR' },
+  { title: 'Sales Pipeline Summary', route: '/app/reports', sub: 'Sales' },
+  { title: 'Infrastructure Cost Report', route: '/app/reports', sub: 'Engineering' },
+  { title: 'Marketing ROI Report', route: '/app/reports', sub: 'Marketing' },
 ];
 
 function fuzzy(str, query) {
@@ -62,22 +62,22 @@ function buildResults(query) {
 
   // Projects
   projects.filter(p => fuzzy(p.title, query) || fuzzy(p.client, query)).forEach(p => {
-    results.push({ type: 'Project', title: p.title, sub: `Client: ${p.client} · ${p.status}`, route: '/projects', icon: <MdWork size={15} />, color: p.color });
+    results.push({ type: 'Project', title: p.title, sub: `Client: ${p.client} · ${p.status}`, route: '/app/projects', icon: <MdWork size={15} />, color: p.color });
   });
 
   // Tasks
   TASKS.filter(t => fuzzy(t.text, query)).forEach(t => {
-    results.push({ type: 'Task', title: t.text, sub: `Priority: ${t.priority}`, route: '/tasks', icon: <MdTask size={15} />, color: t.priority === 'High' ? '#EF4444' : t.priority === 'Medium' ? '#F59E0B' : '#10B981' });
+    results.push({ type: 'Task', title: t.text, sub: `Priority: ${t.priority}`, route: '/app/tasks', icon: <MdTask size={15} />, color: t.priority === 'High' ? '#EF4444' : t.priority === 'Medium' ? '#F59E0B' : '#10B981' });
   });
 
   // Customers
   customers.filter(c => fuzzy(c.name, query) || fuzzy(c.company, query) || fuzzy(c.project, query)).forEach(c => {
-    results.push({ type: 'Customer', title: c.name, sub: `${c.company} · ${c.status}`, route: '/customers', icon: <MdPeople size={15} />, color: c.color });
+    results.push({ type: 'Customer', title: c.name, sub: `${c.company} · ${c.status}`, route: '/app/customers', icon: <MdPeople size={15} />, color: c.color });
   });
 
   // Reports
   REPORTS.filter(r => fuzzy(r.title, query) || fuzzy(r.sub, query)).forEach(r => {
-    results.push({ type: 'Report', title: r.title, sub: r.sub, route: '/reports', icon: <MdBarChart size={15} />, color: '#3B82F6' });
+    results.push({ type: 'Report', title: r.title, sub: r.sub, route: '/app/reports', icon: <MdBarChart size={15} />, color: '#3B82F6' });
   });
 
   return results.slice(0, 8);

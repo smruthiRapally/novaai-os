@@ -35,10 +35,10 @@ export default function Dashboard() {
       </div>
 
       <div className="stat-grid">
-        <StatCard index={0} label="Monthly Recurring Revenue" value={formatINR(totalMRR)} change="18% vs last month" changeDir="up" icon={<MdAttachMoney size={20} />} color="var(--green)" to="/revenue" />
-        <StatCard index={1} label="Active Customers" value={activeCustomers} change="2 new this month" changeDir="up" icon={<MdPeople size={20} />} color="var(--accent)" to="/customers" />
-        <StatCard index={2} label="Open Projects" value={openProjects} change="1 overdue" changeDir="down" icon={<MdWork size={20} />} color="var(--orange)" to="/projects" />
-        <StatCard index={3} label="ARR" value={formatINR(totalMRR * 12)} change="on track" changeDir="up" icon={<MdTrendingUp size={20} />} color="var(--neutral)" to="/revenue" />
+        <StatCard index={0} label="Monthly Recurring Revenue" value={formatINR(totalMRR)} change="18% vs last month" changeDir="up" icon={<MdAttachMoney size={20} />} color="var(--green)" to="/app/revenue" />
+        <StatCard index={1} label="Active Customers" value={activeCustomers} change="2 new this month" changeDir="up" icon={<MdPeople size={20} />} color="var(--accent)" to="/app/customers" />
+        <StatCard index={2} label="Open Projects" value={openProjects} change="1 overdue" changeDir="down" icon={<MdWork size={20} />} color="var(--orange)" to="/app/projects" />
+        <StatCard index={3} label="ARR" value={formatINR(totalMRR * 12)} change="on track" changeDir="up" icon={<MdTrendingUp size={20} />} color="var(--neutral)" to="/app/revenue" />
       </div>
 
       <div className="charts-row" style={{ marginBottom: 24 }}>
@@ -58,7 +58,7 @@ export default function Dashboard() {
               </div>
             ))}
           </div>
-          <button className="btn btn-ghost" style={{ marginTop: 8, width: '100%', justifyContent: 'center', fontSize: '0.8rem' }} onClick={() => navigate('/reports')}>
+          <button className="btn btn-ghost" style={{ marginTop: 8, width: '100%', justifyContent: 'center', fontSize: '0.8rem' }} onClick={() => navigate('/app/reports')}>
             View all activity →
           </button>
         </div>
@@ -71,14 +71,14 @@ export default function Dashboard() {
       <div className="glass-card desktop-only">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
           <div className="chart-title" style={{ marginBottom: 0 }}>Recent Customers</div>
-          <button className="btn btn-outline" style={{ fontSize: '0.8rem', padding: '6px 14px' }} onClick={() => navigate('/customers')}>View all</button>
+          <button className="btn btn-outline" style={{ fontSize: '0.8rem', padding: '6px 14px' }} onClick={() => navigate('/app/customers')}>View all</button>
         </div>
         <div className="table-wrap">
           <table>
             <thead><tr><th>Customer</th><th>Company</th><th>Plan</th><th>MRR</th><th>Status</th></tr></thead>
             <tbody>
               {customers.slice(0, 5).map(c => (
-                <tr key={c.id} style={{ cursor: 'pointer' }} onClick={() => navigate('/customers')}>
+                <tr key={c.id} style={{ cursor: 'pointer' }} onClick={() => navigate('/app/customers')}>
                   <td>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                       <div style={{ width: 30, height: 30, borderRadius: 8, background: `${c.color}22`, color: c.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.75rem' }}>{c.avatar}</div>
@@ -100,11 +100,11 @@ export default function Dashboard() {
       <div className="glass-card mobile-only" style={{ marginTop: 0 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
           <div className="chart-title" style={{ marginBottom: 0 }}>Recent Customers</div>
-          <button className="btn btn-outline" style={{ fontSize: '0.75rem', padding: '6px 12px', minHeight: 'unset' }} onClick={() => navigate('/customers')}>View all</button>
+          <button className="btn btn-outline" style={{ fontSize: '0.75rem', padding: '6px 12px', minHeight: 'unset' }} onClick={() => navigate('/app/customers')}>View all</button>
         </div>
         <div className="mobile-customer-list" style={{ display: 'block', marginBottom: 0 }}>
           {customers.slice(0, 5).map(c => (
-            <div key={c.id} className="mobile-row-card" onClick={() => navigate('/customers')}>
+            <div key={c.id} className="mobile-row-card" onClick={() => navigate('/app/customers')}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
                 <div style={{ width: 36, height: 36, borderRadius: 9, background: `${c.color}22`, color: c.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.85rem', flexShrink: 0 }}>{c.avatar}</div>
                 <div>

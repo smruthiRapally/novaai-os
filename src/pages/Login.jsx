@@ -13,7 +13,7 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => navigate('/'), 800);
+    setTimeout(() => navigate('/app'), 800);
   };
 
   return (
